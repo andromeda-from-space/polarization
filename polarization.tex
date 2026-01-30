@@ -1,0 +1,45 @@
+\usepackage{amsmath}
+\begin{document}
+So I'm not 100\% certain how physical this is. Half of why I am doing this is to do some warm up math to get back in the swing of things. All of the math is linear algebra vector stuff, so not overly complicated. Anyway.\\[12pt]
+Let's consider light as a wave represented by a vector who's magnitude is proportional to the intensity of the light. The idea is that the vector points in the direction of oscillation of the wave. Thus, if we are observing a light source and project, consider a plan defined by the vector pointing from the observer to the source (as a normal to the plane), we see that the waves from the source are distributed uniformly around the circle who's radius is the intensity. (Note, it might actually be a variety of intensities, for simplicity we shall assume they are all the same). When introducing a polarizer, it selects a direction and we project each vector onto that direction and that is the intesity of the light that makes it through a polarizer. First, given the uniform distribution of light, this should allow for us to calculate the reduction in intensity of a single polarizer. With no loss of generality, we can choose the $y$-axis as the direction of polarization and integrate with respect to $\theta$, the angle of the vector and the uniform random variable. Due to symmetry, we can consider only the first quadrant of the circle. Without the polarizer, each ray has an intensity $I^{*}$ and we can use a line integral along the edge of the circle from $\theta = 0$ to $\theta = \pi/2$ to calculate the total intensity:
+\begin{gather*}
+    I_{tot} = 
+\end{gather*}
+%TODO: no polarizer line
+%TODO: no polarizer area
+If instead, the vectors are distributed across the whole quarter circle (i.e. varying intensity with $I^{*}$ being some maximum), we can get the same result with an area integral. Note, this is probably actually distributed along some one sided Gaussian or like a Poisson distribution. I would have to look up the physics. The integral becomes more complicated as you integrate over all of space with a function that trends towards zero. It must converge as it's based on a physical system, I just don't know all of the details.
+
+Each ray has a projection onto the direction of polarization of:
+\begin{gather*}
+    \hat{I} = I^{*}\sin(\theta)
+\end{gather*}
+Where $I^{*}$ is the original intensity.
+%TODO: 1 polarizer: Line version
+\\[12pt]
+Redoing with the area integral:
+\begin{gather*}
+    I = r\\
+    I_{tot} = \integral I dA = \integral_{0}^{I^{*}}\integral_{0}^{I^{*}\sin(\theta)}Idydx\\
+    I_{tot} = 
+\end{gather*}
+
+%TODO: 1 polarizer: Area version
+\\[12pt]
+
+What happens if we introduce two polarizers though. From observation we know that light \emph{will} pass through if they are non-perpendicular. This is because the light will first be projected onto the one vector and then onto the other. If they are perpendicular though that projection is zero. Interestingly, if you introduce a polarizer in the middle that is not parallel to either of the two perpendicular polarizers, light will pass through. It's a series of projections, that strip out each of the perpendicular components before doing the next projection. Thus we see components that might act in the direction of one of the previous polarizations being retintroduced, which is a wild phenomenon. We also expect this light to be less intense. Given one polarizer is aligned to the $x$-axis and another is aligned to the $y$-axis, what happens if the third polarizer is aligned with some $\theta$ in the middle?
+%TODO: 3 polarizers: Line version
+%TODO: 3 polarizers: Area version
+\\[12pt]
+
+What if we introduce $n$ such polarizers?
+%TODO: n-Polarizers: Line version
+%TODO: n-Polarizers: Area version
+\begin{gather*}
+    \vec{v} = x\vec{\hat{x}} + \vec{\hat{y}}\\
+    \vec{\hat{x}_{1}} = \cos({\theta})\vec{\hat{x}} + \sin(\theta)\vec{\hat{y}}\\
+    \vec{\hat{y}_{1}} = -\sin({\theta})\vec{\hat{x}} + \cos(\theta)\vec{\hat{y}}\\
+    \vec{v} \cdot \vec{\hat{x}_{1}} = x\cos(\theta) + y\sin(\theta)\\
+    \vec{v} \cdot \vec{\hat{y}_{1}} = -x\sin(\theta) + y\cos(\theta)\\
+    \vec{v} = \left(x\cos(\theta) + y\sin(\theta)\right)\vec{\hat{x}_{1}} + \left(-x\sin(\theta) + y\cos(\theta)\right)\vec{\hat{y}_{1}}
+\end{gather*}
+\end{document}
